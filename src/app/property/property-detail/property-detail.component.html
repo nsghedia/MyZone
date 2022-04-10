@@ -1,0 +1,9 @@
+<p>
+  property-detail works = {{propertyId}}!
+  <button class="btn btn-primary" (click)="onBack()">Back</button><br>
+  <button class="btn btn-primary" routerLink="/property-detail/1">1</button><br>
+  <button class="btn btn-primary" routerLink="/property-detail/2">2</button><br>
+  <button class="btn btn-primary" routerLink="/property-detail/3">3</button><br>
+  <button class="btn btn-primary" [routerLink]="['/property-detail','4']">4</button><br>
+  <button class="btn btn-primary" (click)="onNext()">Next</button><br>
+</p>

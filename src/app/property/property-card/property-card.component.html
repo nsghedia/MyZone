@@ -1,0 +1,23 @@
+<div class="card">
+  <div class="card-img-wrapper text-center">
+    <img *ngIf="property.ImageName" class="PropImage img-fluid" src="assets/Images/{{property.ImageName}}.jpg">
+    <img *ngIf="!property.ImageName" class="PropImage img-fluid" src="assets/Images/defaultPropertyImage.jpg">
+    <ul class="list-inline text-center member-icon animate col-md-auto">
+      <li class="list-inline-item">
+        <button class="btn btn-primary" routerLink="/property-detail/{{property.Id}}">
+          <i class="fa-solid fa-pen-to-square"></i>
+        </button>
+      </li>
+      <li class="list-inline-item">
+        <button class="btn btn-primary">
+          <i class="fa-solid fa-address-book"></i>
+        </button>
+      </li>
+    </ul>
+  </div>
+  <div class="card-body p-2">
+    <h1>{{property.Name}}</h1>
+    <h2>{{property.Type}}</h2>
+    <h3>{{property.Price}}</h3>
+  </div>
+</div>
