@@ -18,12 +18,12 @@
 
           <div class="form-group col-12">
             <label for="password" class="form-label">Password</label>
-            <input type="text" formControlName="password" class="form-control">
+            <input type="password" formControlName="password" class="form-control">
           </div>
 
           <div class="form-group col-12">
             <label for="cpassword" class="form-label">Confirm Password</label>
-            <input type="text" formControlName="cpassword" class="form-control">
+            <input type="password" formControlName="cpassword" class="form-control">
           </div>
 
           <div class="form-group col-12">
@@ -35,6 +35,9 @@
             <button type="submit" class="btn btn-primary" style="margin: 20px 20px 20px 0px;">Save</button>
             <button type="reset" class="btn btn-secondary">Cancel</button>
           </div>
+
+          Form Values : {{RegisterForm.value | json}}<br>
+          Form Status : {{RegisterForm.valid}}
         </form>
       </div>
     </div>
