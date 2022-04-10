@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PropertyCardComponent } from './property/property-card/property-card.component';
@@ -12,6 +11,8 @@ import { AddPropertyComponent } from './property/add-property/add-property.compo
 import { RouterModule, Routes } from '@angular/router';
 import { PropertyDetailComponent } from './property/property-detail/property-detail.component';
 import { FormsModule } from '@angular/forms';
+import { UserLoginComponent } from './user/user-login/user-login.component';
+import { UserRegisterComponent } from './user/user-register/user-register.component';
 
 const appRoutes: Routes = [
   {
@@ -31,6 +32,14 @@ const appRoutes: Routes = [
     component: PropertyDetailComponent,
   },
   {
+    path: 'user-login',
+    component: UserLoginComponent,
+  },
+  {
+    path: 'user-register',
+    component: UserRegisterComponent,
+  },
+  {
     path: '**',
     component: PropertyListComponent,
   },
@@ -44,13 +53,15 @@ const appRoutes: Routes = [
     NavBarComponent,
     AddPropertyComponent,
     PropertyDetailComponent,
+    UserLoginComponent,
+    UserRegisterComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
-    FormsModule
+    FormsModule,
   ],
   providers: [HousingService],
   bootstrap: [AppComponent],
