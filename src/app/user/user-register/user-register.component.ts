@@ -1,6 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-user-register',
@@ -8,24 +7,20 @@ import { Router } from '@angular/router';
   styleUrls: ['./user-register.component.css'],
 })
 export class UserRegisterComponent implements OnInit {
-  @ViewChild('AddCardForm') AddCardForm!: NgForm;
-  AddCardFormSubmitted: boolean = false;
-  constructor(private router: Router) {}
+  RegisterForm!: FormGroup;
+  constructor() {}
 
-  ngOnInit() {}
-
-  onBack() {
-    this.router.navigate(['/']);
+  ngOnInit() {
+    this.RegisterForm = new FormGroup({
+      userName: new FormControl('Neha Ghedia', Validators.required),
+      email: new FormControl('', Validators.required),
+      password: new FormControl('', Validators.required),
+      cpassword: new FormControl('', Validators.required),
+      mobile: new FormControl('', Validators.required),
+    });
   }
 
-  onSubmit(AddCardForm: NgForm) {
-    // alert(AddCardForm.status);
-    this.AddCardFormSubmitted = true;
-    console.log(AddCardForm);
-  }
-
-  onSubmitOtherWay() {
-    // this.AddCardFormSubmitted = true;
-    // console.log(this.AddCardForm);
+  onSubmit() {
+    console.log(this.RegisterForm);
   }
 }
