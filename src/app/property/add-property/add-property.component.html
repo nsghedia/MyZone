@@ -2,20 +2,36 @@
   <div class=" card col-md-6 Larger shadow">
     <div class="card-header">Add New Property</div>
     <div class="card-body">
-      <form>
-        <div class="form-group col-12 m-2">
+      <form (ngSubmit)="onSubmit(AddCardForm);onSubmitOtherWay();" #AddCardForm="ngForm">
+        <div class="form-group m-2">
           <label for="name">Name</label>
-          <input type="text" class="form-control" style="width: 600px;">
+          <input type="text" ngModel name="Name" #rName="ngModel" required maxlength="15" minlength="5"
+            class="form-control">
+          <span *ngIf="!rName.valid && rName.touched" class="input-error">
+            <span *ngIf="rName.errors?.['required']">Please provide name</span>
+            <span *ngIf="rName.errors?.['maxlength'] || rName.errors?.['minlength']">Name can not be less then 5
+              characters and greater then 15 characters</span>
+          </span>
+          <span *ngIf="AddCardFormSubmitted && !rName.valid && !rName.touched" class="input-error">Please provide
+            name</span>
         </div>
-        <div class="form-group col-12 m-2">
+        <div class="form-group m-2">
           <label for="type">Type</label>
-          <input type="text" class="form-control" style="width: 600px;">
+          <input type="text" ngModel name="Type" #rType="ngModel" maxlength="50" required class="form-control">
+          <span *ngIf="!rType.valid && rType.touched" class="input-error">Please provide type</span>
+          <span *ngIf="AddCardFormSubmitted && !rType.valid && !rType.touched" class="input-error">Please provide
+            type</span>
         </div>
-        <div class="form-group col-12 m-2">
+        <div class="form-group m-2">
           <label for="price">Price</label>
-          <input type="text" class="form-control" style="width: 600px;">
+          <input type="number" ngModel name="Price" #rPrice="ngModel" required class="form-control">
+          <span *ngIf="!rPrice.valid && rPrice.touched" class="input-error">Please provide price</span>
+          <span *ngIf="AddCardFormSubmitted && !rPrice.valid && !rPrice.touched" class="input-error">Please provide
+            price</span>
         </div>
-        <div class="form-group col-12 text-center">
+        <div class="form-group text-center">
+          <!-- <button [disabled]="!AddCardForm.valid" type="submit" class="btn btn-primary"
+            style="margin: 20px 20px 20px 0px;">Save</button> -->
           <button type="submit" class="btn btn-primary" style="margin: 20px 20px 20px 0px;">Save</button>
           <button type="reset" class="btn btn-secondary">Reset</button>
         </div>
