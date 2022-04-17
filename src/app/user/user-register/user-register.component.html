@@ -23,7 +23,7 @@
 
           <div class="form-group col-12">
             <label for="cpassword" class="form-label">Confirm Password</label>
-            <input type="password" formControlName="cpassword" class="form-control">
+            <input type="password" formControlName="cpassword" (blur)="Compare()" class="form-control">
           </div>
 
           <div class="form-group col-12">
